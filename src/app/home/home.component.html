@@ -1,0 +1,14 @@
+﻿<h1>Welcome</h1>
+<div style="width: 100%">
+  <button
+    *ngIf="role !== 3"
+    style="float: right"
+    mat-raised-button
+    color="primary"
+    (click)="openDialog()"
+  >
+    Add Holiday Request
+  </button>
+  <table-pagination-example>loading</table-pagination-example>
+</div>
+<!-- <request-table></request-table> -->

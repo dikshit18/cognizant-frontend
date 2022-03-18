@@ -1,0 +1,88 @@
+<div>
+  <div class="add-title">
+    <h2 class="primary">Add customer</h2>
+  </div>
+  <div>
+    <form (change)="formChanged()">
+      <!-- <form [formGroup]="addCusForm" (change)="formChanged()"> -->
+      <mat-grid-list
+        cols="2"
+        [cols]="breakpoint"
+        rowHeight="85px"
+        (window:resize)="onResize($event)"
+      >
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field>
+              <input
+                matInput
+                [matDatepicker]="picker1"
+                placeholder="From"
+                [(ngModel)]="fromDate"
+                name="fromDate"
+                (dateChange)="dateChange($event)"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker1"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field>
+              <input
+                matInput
+                [matDatepicker]="picker2"
+                placeholder="To"
+                [(ngModel)]="toDate"
+                [min]="minDate"
+                name="toDate"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker2"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field>
+              <textarea
+                matInput
+                placeholder="Notes"
+                [(ngModel)]="notes"
+                name="notes"
+              ></textarea>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <div class="btn-sec">
+        <button
+          mat-raised-button
+          type="submit"
+          color="primary"
+          class="Update-btn"
+          (click)="onSave()"
+        >
+          Save
+        </button>
+        <button
+          mat-raised-button
+          type="button"
+          class="Discard-btn"
+          (click)="openDialog()"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
